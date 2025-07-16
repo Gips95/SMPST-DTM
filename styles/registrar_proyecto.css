@@ -1,0 +1,195 @@
+body { font-family: 'Arial', sans-serif; background-color: #e9ecef; min-height: 100vh; display: flex; }
+
+/* Estilos para el contenedor principal que incluye el sidebar y el contenido */
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Estilos para el sidebar (asumiendo que tiene una clase 'sidebar') */
+.sidebar {
+    width: 250px; /* Ajusta el ancho según sea necesario */
+    /* Otros estilos para el sidebar */
+}
+
+/* Estilos para el contenedor del formulario de registro */
+.registro-container-main {
+    flex: 1; /* Ocupa el espacio restante */
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+    height: calc(100vh - 60px); /* Ajusta la altura para que no se superponga con el header/footer */
+    padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
+}
+
+.registro-card-registro { background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.registro-card-header { background: #007bff; color: white; padding: 25px 40px; border-bottom: 3px solid #0056b3; }
+.registro-card-header h2 { margin: 0; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+.registro-card-body { padding: 40px; }
+.registro-form-group { margin-bottom: 25px; }
+.registro-form-label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; }
+.registro-form-control, .registro-form-select { width: 100%; padding: 12px 20px; border: 2px solid #007bff; border-radius: 25px; font-size: 16px; transition: all 0.3s ease; background-color: rgba(0,123,255,0.05); }
+.registro-form-control:focus, .registro-form-select:focus { border-color: #0056b3; box-shadow: 0 0 10px rgba(0,123,255,0.2); }
+.registro-rule { display: none; font-size: 12px; color: #555; margin-top: 5px; }
+.registro-textarea-form-control { height: 150px; resize: vertical; }
+/* .registro-dropzone { Removed Dropzone specific styling } */
+.registro-dz-message { /* Not needed anymore */ }
+.registro-button-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.registro-btn-primary { background-color: #007bff!important; border: none; padding: 15px 30px!important; border-radius: 25px!important; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.registro-btn-primary:hover { background-color: #0056b3!important; transform: translateY(-2px); }
+.registro-btn-secondary { background-color: #6c757d!important; border-radius: 25px!important; }
+.registro-is-invalid { border-color: #dc3545 !important; }
+.registro-invalid-feedback { display: none; font-size: 12px; color: #dc3545; }
+.registro-is-invalid + .registro-invalid-feedback, .registro-textarea-form-control.registro-is-invalid + .registro-invalid-feedback { display: block; }
+
+/* Custom File Input Preview Styling */
+.file-input-wrapper {
+    margin-top: 10px;
+    margin-bottom: 15px; /* Add some space below the input */
+}
+
+.file-preview-container {
+    margin-top: 15px;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 80px; /* Adjust as needed */
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 10px; /* Space between file items */
+    align-content: flex-start; /* Aligns content to the start of the cross axis */
+}
+
+.file-preview-container.empty:before {
+    content: "Arrastra y suelta archivos aquí o haz clic para seleccionar.";
+    color: #6c757d;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+}
+
+.file-preview-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    font-size: 14px;
+    flex-basis: calc(50% - 5px); /* Two items per row with gap */
+    box-sizing: border-box; /* Include padding and border in the width */
+    position: relative; /* For error message positioning */
+}
+
+@media (max-width: 768px) {
+    .file-preview-item {
+        flex-basis: 100%; /* One item per row on smaller screens */
+    }
+}
+
+.file-preview-name {
+    font-weight: bold;
+    color: #333;
+    word-break: break-all;
+    flex-grow: 1;
+    padding-right: 10px; /* Space before size */
+}
+
+.file-preview-size {
+    color: #6c757d;
+    flex-shrink: 0;
+}
+
+.file-preview-remove {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 15px;
+    flex-shrink: 0;
+    padding: 0 5px;
+    transition: color 0.2s ease;
+}
+
+.file-preview-remove:hover {
+    color: #bd2130;
+}
+
+.file-error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: -20px; /* Position below the item */
+    left: 0;
+    text-align: center;
+}
+.file-preview-item.error {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+/* Custom Modal for Alerts */
+.modal-custom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+.modal-custom-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+.modal-custom-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+.modal-custom-overlay.show .modal-custom-content {
+    transform: translateY(0);
+}
+.modal-custom-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+.modal-custom-message {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+}
+.modal-custom-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.modal-custom-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,160 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Más amplio */
+
+}
+
+.login-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.login-tittle {
+    text-align: center;
+    color: #007bff; /* Azul más claro */
+    font-weight: 600; /* Poppins semibold */
+    font-size: 28px; /* Tamaño más grande */
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    font-weight: 600; /* Texto en negrita */
+    color: #333;
+    font-size: 16px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #007bff; /* Azul más claro */
+}
+
+
+.login-form button {
+    background-color: #007bff; /* Azul más claro */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600; /* Texto en negrita */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3; /* Azul un poco más oscuro */
+}
+
+.login-form a {
+    text-align: center;
+    color: #007bff; /* Azul más claro */
+    text-decoration: none;
+    font-weight: 500; /* Poppins medium */
+    transition: color 0.3s ease;
+}
+
+.login-form a:hover {
+    color: #0056b3; /* Azul un poco más oscuro */
+}
+
+.modal{
+    position: fixed;
+    z-index: 999;
+    bottom: -1000px;
+    left: 50%;
+    background-color: white;
+
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.open {
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    max-height: 400px;
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+
+    border-radius: 30px;
+    animation: subirModal 0.5s ease-out;
+}
+
+.modal form{
+    background-color: white;
+    margin-top: 0;
+}
+
+.btns-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btns-modal .close-modal{
+    background-color: #757171;
+}
+
+@keyframes subirModal {
+    from {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+
+.alert {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+

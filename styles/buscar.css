@@ -1,0 +1,375 @@
+/* Estilos específicos para la página de búsqueda de proyectos */
+
+/* Contenido principal (específico para esta página si necesita sobrescribir dash.css) */
+.main-content {
+    /* flex-grow: 1; */ /* Esto debería ser manejado por dash.css */
+    padding: 30px; /* Mantiene el padding de esta sección */
+    overflow-y: auto; /* Permite el scroll vertical dentro del main-content */
+    background-color: #e9ecef; /* Mantiene el color de fondo */
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Tarjeta de búsqueda (inspirada en card-registro) */
+.card-busqueda {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Evita que la tarjeta se encoja */
+}
+
+.card-header {
+    background: #007bff;
+    color: white;
+    padding: 25px 40px;
+    border-bottom: 3px solid #0056b3;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.card-body {
+    padding: 40px;
+}
+
+/* Filtros y controles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: rgba(0,123,255,0.05);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0,123,255,0.2);
+}
+
+/* Items per page selector */
+.items-per-page {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.items-per-page select {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Tabla de resultados */
+.table-responsive {
+    flex-grow: 1; /* Permite que el contenedor de la tabla responsive crezca */
+    overflow-x: auto; /* Mantiene el scroll horizontal si el contenido es demasiado ancho */
+    margin-top: 0 !important; /* Elimina margin-top predeterminado si está presente */
+    display: flex; /* Lo convierte en un contenedor flex para una mejor alineación de la tabla */
+    flex-direction: column;
+}
+
+/* General table styling (DataTables will override some of these) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background-color: white; /* Asegura que el fondo de la tabla sea blanco */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Evita que el texto se envuelva en las celdas por defecto */
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Asegura que el encabezado esté por encima del contenido con scroll */
+}
+
+tr {
+    background-color: #f1f1f1; /* Fondo de fila por defecto */
+}
+
+td {
+    background: white; /* Fondo de celda */
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa; /* Fondo más claro para filas pares */
+}
+
+tr:hover {
+    background-color: rgba(0, 123, 255, 0.05); /* Efecto hover */
+}
+
+/* --- Estilos específicos de DataTables --- */
+.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1; /* Permite que el wrapper de DataTables crezca */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ocultar la etiqueta de búsqueda predeterminada de DataTables */
+.dataTables_filter label {
+    display: none; 
+}
+
+/* Estilo para los botones de DataTables (botones de exportación) */
+.dt-buttons {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px; /* Espacio entre botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+.dt-buttons .btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: #6c757d; /* Color secundario por defecto */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none; /* Elimina subrayado */
+}
+
+.dt-buttons .btn:hover {
+    background-color: #5a6268;
+}
+
+/* Colores de botones personalizados (si es necesario) */
+.dt-button.buttons-copy, .dt-button.buttons-csv, .dt-button.buttons-excel,
+.dt-button.buttons-pdf, .dt-button.buttons-print {
+    background-color: #6c757d; 
+    color: white;
+}
+
+.dt-button.buttons-copy:hover, .dt-button.buttons-csv:hover, 
+.dt-button.buttons-excel:hover, .dt-button.buttons-pdf:hover, 
+.dt-button.buttons-print:hover {
+    background-color: #5a6268;
+}
+
+
+/* Estilo de paginación de DataTables */
+.dataTables_paginate {
+    padding-top: 15px;
+    text-align: right;
+    flex-shrink: 0; /* Evita que la paginación se encoja */
+}
+
+.paginate_button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--primary-blue);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.paginate_button:hover:not(.disabled):not(.current) {
+    background-color: var(--light-blue);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.paginate_button.current {
+    background-color: var(--primary-blue);
+    color: white !important; 
+    border-color: var(--primary-blue);
+    cursor: default;
+}
+
+.paginate_button.disabled {
+    color: #ccc !important;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+}
+
+/* Texto de información de DataTables */
+.dataTables_info {
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    flex-shrink: 0;
+}
+
+/* Menú de longitud de DataTables */
+.dataTables_length {
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: #6c757d;
+    flex-shrink: 0;
+}
+.dataTables_length select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+/* Acciones de tabla (desde buscar_proyectos.php, pero para botones de DataTables) */
+.table-actions {
+    background-color: #007bff; /* Este estilo parece estar destinado a botones personalizados, no a los generados por DataTables */
+}
+
+/* Contenedor de paginación en la parte inferior */
+#pagination-container {
+    padding: 20px 0;
+    text-align: center;
+    flex-shrink: 0; /* Evita que la paginación personalizada se encoja */
+}
+
+.pagination button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    margin: 0 5px;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: var(--dark-blue);
+}
+
+.pagination button.active {
+    background-color: var(--dark-blue);
+    cursor: default;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 0 10px;
+    color: #6c757d;
+}
+
+/* Ajustes responsivos para el diseño general */
+@media (max-width: 992px) {
+    /* .sidebar styles moved to panel.css */
+    /* .main-content styles should be reviewed for potential conflicts with dash.css */
+    .main-content {
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .card-header h2 {
+        font-size: 24px;
+    }
+
+    .dt-buttons {
+        justify-content: center; /* Centrar botones en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    /* body styles moved to dash.css (or a global layout css) */
+    /* sidebar styles moved to panel.css */
+
+    .main-content {
+        padding: 15px;
+        overflow-y: visible; /* Permite que el contenido empuje la altura */
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-header {
+        padding: 15px 20px;
+    }
+
+    .card-header h2 {
+        font-size: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control, .form-select {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* Ajustar elementos de DataTables para móviles */
+    .dataTables_wrapper {
+        flex-direction: column; /* Apila la longitud, el filtro, la información, la paginación verticalmente */
+    }
+
+    .dataTables_info, .dataTables_length, .dataTables_paginate {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .dataTables_filter input {
+        width: calc(100% - 20px); /* Ajusta el ancho, considerando el padding */
+        max-width: 250px; /* Todavía proporciona un ancho máximo */
+        margin-top: 10px;
+    }
+
+    .dt-buttons {
+        flex-direction: column; /* Apila los botones verticalmente */
+        gap: 8px;
+        align-items: stretch; /* Estira los botones a todo el ancho */
+        margin-bottom: 15px;
+    }
+
+    .dt-buttons .btn {
+        width: 100%; /* Ancho completo para botones apilados */
+    }
+    .pagination button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        margin: 0 3px;
+    }
+}

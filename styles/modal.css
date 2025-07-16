@@ -1,0 +1,62 @@
+.modal{
+    position: fixed;
+    z-index: 999;
+    bottom: -1000px;
+    left: 50%;
+    background-color: white;
+
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 100px;
+}
+
+.open {
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    pointer-events: auto;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+    /*max-height: auto;
+    max-width: 600px; */
+    width: auto;
+    height: auto;
+
+    border-radius: 30px;
+    animation: subirModal 0.5s ease-out;
+}
+
+.modal form{
+    background-color: white;
+    margin-top: 0;
+}
+
+.btns-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btns-modal .close-modal{
+    background-color: #757171;
+}
+
+@keyframes subirModal {
+    from {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }

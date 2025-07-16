@@ -1,0 +1,42 @@
+form span{
+    display: block;
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.message.error {
+    /*background-color: #f8d7da;*/
+    background-color: transparent;
+    color: #721c24;
+}
+
+form .input-error{
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+form .input-error:focus{
+    border-color: #721c24;
+}
+
+.message.success {
+    /*background-color: #d4edda;*/
+    background-color: transparent;
+    color: #155724;
+}
+
+form .input-success{
+    color: #155724;
+    background-color: #d4edda;
+}
+
+form.input-success:focus{
+    border-color: #155724;
+}

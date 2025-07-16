@@ -1,0 +1,43 @@
+body { font-family: 'Arial', sans-serif; background-color: #e9ecef; min-height: 100vh; display: flex; }
+
+/* Estilos para el contenedor principal que incluye el sidebar y el contenido */
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Estilos para el sidebar (asumiendo que tiene una clase 'sidebar') */
+.sidebar {
+    width: 250px; /* Ajusta el ancho según sea necesario */
+    /* Otros estilos para el sidebar */
+}
+
+/* Estilos para el contenedor del formulario de registro */
+.registro-container-main {
+    flex: 1; /* Ocupa el espacio restante */
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+    height: calc(100vh - 60px); /* Ajusta la altura para que no se superponga con el header/footer */
+    padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
+}
+
+.registro-card-registro { background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.registro-card-header { background: #007bff; color: white; padding: 25px 40px; border-bottom: 3px solid #0056b3; }
+.registro-card-header h2 { margin: 0; font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+.registro-card-body { padding: 40px; }
+.registro-form-group { margin-bottom: 25px; }
+.registro-form-label { display: block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; }
+.registro-form-control, .registro-form-select { width: 100%; padding: 12px 20px; border: 2px solid #007bff; border-radius: 25px; font-size: 16px; transition: all 0.3s ease; background-color: rgba(0,123,255,0.05); }
+.registro-form-control:focus, .registro-form-select:focus { border-color: #0056b3; box-shadow: 0 0 10px rgba(0,123,255,0.2); }
+.registro-rule { display: none; font-size: 12px; color: #555; margin-top: 5px; }
+.registro-textarea-form-control { height: 150px; resize: vertical; }
+.registro-dropzone { border: 2px dashed #007bff !important; border-radius: 15px !important; background: rgba(0,123,255,0.05) !important; min-height: 150px; padding: 20px !important; }
+.registro-dz-message { color: #007bff !important; font-size: 16px; }
+.registro-button-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.registro-btn-primary { background-color: #007bff!important; border: none; padding: 15px 30px!important; border-radius: 25px!important; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.registro-btn-primary:hover { background-color: #0056b3!important; transform: translateY(-2px); }
+.registro-btn-secondary { background-color: #6c757d!important; border-radius: 25px!important; }
+.registro-is-invalid { border-color: #dc3545 !important; }
+.registro-invalid-feedback { display: none; font-size: 12px; color: #dc3545; }
+.registro-is-invalid + .registro-invalid-feedback, .registro-textarea-form-control.registro-is-invalid + .registro-invalid-feedback { display: block; }
