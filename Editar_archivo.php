@@ -644,28 +644,6 @@ if (!function_exists('formatSize')) {
                 }).catch((err) => Swal.fire('Error al procesar solicitud', err.message, 'error'))
         }
 
-        formElement.addEventListener('submit' (e) => {
-            if(!validation()){ // otras validaciones
-                e.preventDefault()
-                renderFilePreviews(selectedDocuments, 'documentosPreview', ACCEPTED_DOC_TYPES, MAX_FILE_SIZE_BYTES); // Renderizar de nuevo para ver errores
-                renderFilePreviews(selectedReferences, 'referenciasPreview', ACCEPTED_REF_TYPES, MAX_FILE_SIZE_BYTES); // renderizar de nuevo para ver errores
-
-                return false
-            }
-
-            const dataTD = new DataTransfer()
-            const dataTR = new DataTransfer()
-
-            selectedDocuments.forEach(items => {
-                dataTD.items.add(items) //se añaden los archivos al dataTransfer
-            })
-            documentInput.files = dataTD.files //se añaden los archivos del dataTransfer al input correspondiente
-
-            selectedReferences.forEach(items => {
-                dataTR.items.add(items)
-            })
-            referenceInput.files = dataTR.files
-        })
     </script>
 </body>
 </html>
